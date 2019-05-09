@@ -1,9 +1,4 @@
----
-title: "Pre-workhsop set up"
-author: "K Duffy"
-date: "5/9/2019"
-output: html_document
----
+
 ## Install R
 Check your version of R!  To use the tools for this tutorial you will need R 3.4.0+
 
@@ -59,3 +54,6 @@ To install RStudio, go to the [RStudio Download page](https://www.rstudio.com/pr
 Under Installers select the version for your distribution.
 Once it's downloaded, double click the file to install it
 Once R and RStudio are installed, click to open RStudio. If you don't get any error messages you are set. If there is an error message, you will need to re-install the program.
+
+##Install packages for this tutorial
+*Bijan you and I can co-write a install.R script*
