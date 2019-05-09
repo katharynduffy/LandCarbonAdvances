@@ -5,6 +5,9 @@ date: "5/9/2019"
 output: html_document
 ---
 
+*Important: please install the latest version of R so that you are able to live code the activities in this section of the workshop*
+
+
 ## Windows R/RStudio Setup
 Download R for Windows here
 Run the .exe file that was just downloaded
@@ -14,7 +17,7 @@ Double click the file to install it
 Once R and RStudio are installed, click to open RStudio. If you don't get any error messages you are set. If there is an error message, you will need to re-install the program.
 
 ## Mac R/RStudio Setup
-*Important: please install the latest version of R so that you are able to live code the activities in this section of the workshop*
+
 Go to CRAN and click on Download R for (Mac) OS X
 Select the .pkg file for the version of OS X that you have and the file will download.
 Double click on the file that was downloaded and R will install
