@@ -1,8 +1,10 @@
+#Pre-tutorial Setup
+You will need to complete the following steps *before* our live coding sessions.  We suggest that you do so at least the night before (installing and updating can take a while, you don't want to miss out!) and come early if you need help getting anything setup on your personal computer.
 
 ## Install R
-Check your version of R!  To use the tools for this tutorial you will need R 3.4.0+
+Please check your version of R!  To use the tools for this tutorial you will need R 3.4.0+
 
-Check your version in R or RStudio:
+How to check your version in R or RStudio if you already have it:
 ```
 > version
                _                           
