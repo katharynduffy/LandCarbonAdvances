@@ -26,7 +26,7 @@ language       R
 version.string R version 3.5.1 (2018-07-02)
 nickname       Feather Spray  
 ```
-If you don't already have R or need to update it [download it here.](https://cran.rstudio.com/)
+If you don't already have R or need to update it [do so here.](https://cran.rstudio.com/)
 
 
 ## Windows R/RStudio Setup
