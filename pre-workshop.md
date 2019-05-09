@@ -58,5 +58,5 @@ Under Installers select the version for your distribution.
 Once it's downloaded, double click the file to install it
 Once R and RStudio are installed, click to open RStudio. If you don't get any error messages you are set. If there is an error message, you will need to re-install the program.
 
-##Install packages for this tutorial
+## Install packages for this tutorial
 *Bijan you and I can co-write a install.R script*
