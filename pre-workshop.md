@@ -4,8 +4,9 @@ author: "K Duffy"
 date: "5/9/2019"
 output: html_document
 ---
-
-*Important: please install the latest version of R so that you are able to live code the activities in this section of the workshop*
+## Install R
+RStudio requires R 3.0.1+. If you don't already have R, [download it here.](https://cran.rstudio.com/)
+*Important: please update to or install the latest version of R so that you are able to live code the activities in this section of the workshop*
 
 
 ## Windows R/RStudio Setup
