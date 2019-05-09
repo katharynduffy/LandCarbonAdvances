@@ -5,8 +5,9 @@ date: "5/9/2019"
 output: html_document
 ---
 ## Install R
-RStudio requires R 3.0.1+. If you don't already have R, [download it here.](https://cran.rstudio.com/)
-*Important: please update to or install the latest version of R so that you are able to live code the activities in this section of the workshop*
+Check your version of R!  To use the tools for this tutorial you will need R \geq 3.4.0
+
+If you don't already have R or need to update it [download it here.](https://cran.rstudio.com/)
 
 
 ## Windows R/RStudio Setup
