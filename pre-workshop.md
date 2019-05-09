@@ -5,27 +5,43 @@ date: "5/9/2019"
 output: html_document
 ---
 ## Install R
-Check your version of R!  To use the tools for this tutorial you will need R \geq 3.4.0
+Check your version of R!  To use the tools for this tutorial you will need R 3.4.0+
 
+Check your version in R or RStudio:
+```
+> version
+               _                           
+platform       x86_64-apple-darwin15.6.0   
+arch           x86_64                      
+os             darwin15.6.0                
+system         x86_64, darwin15.6.0        
+status                                     
+major          3                           
+minor          5.1                         
+year           2018                        
+month          07                          
+day            02                          
+svn rev        74947                       
+language       R                           
+version.string R version 3.5.1 (2018-07-02)
+nickname       Feather Spray  
+```
 If you don't already have R or need to update it [download it here.](https://cran.rstudio.com/)
 
 
 ## Windows R/RStudio Setup
-Download R for Windows here
-Run the .exe file that was just downloaded
-Go to the RStudio Download page
-Under Installers select RStudio X.XX.XXX - Windows Vista/7/8/10
+After you have downloaded R, run the .exe file that was just downloaded
+Go to the [RStudio Download page](https://www.rstudio.com/products/rstudio/download/#download)
+Under Installers select RStudio X.XX.XXX - e.g. Windows Vista/7/8/10
 Double click the file to install it
 Once R and RStudio are installed, click to open RStudio. If you don't get any error messages you are set. If there is an error message, you will need to re-install the program.
 
 ## Mac R/RStudio Setup
 
-Go to CRAN and click on Download R for (Mac) OS X
-Select the .pkg file for the version of OS X that you have and the file will download.
-Double click on the file that was downloaded and R will install
+After you have downloaded R, double click on the file that was downloaded and R will install
 Go to the [RStudio Download page](https://www.rstudio.com/products/rstudio/download/#download)
-Under Installers select RStudio 0.98.1103 - Mac OS X XX.X (64-bit) to download it.
-Once it's downloaded, double click the file to install it
+Under Installers select RStudio 1.2.1135 - Mac OS X XX.X (64-bit) to download it.
+Once it's downloaded, double click the file to install it.
 Once R and RStudio are installed, click to open RStudio. If you don't get any error messages you are set. If there is an error message, you will need to re-install the program.
 
 ## Linux R/RStudio Setup
