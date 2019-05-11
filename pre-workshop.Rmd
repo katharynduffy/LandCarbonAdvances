@@ -3,7 +3,7 @@ title: "Pre-tutorial Setup"
 author: 
   - Katharyn Duffy
   - Bijan Seyednasrollah
-date: "May 11 , 2019"
+date: "`r format(Sys.time(), '%b %d , %Y')`"
 output:
   rmarkdown::html_vignette:
 vignette: >
@@ -12,7 +12,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 
 # Pre-tutorial Setup
@@ -79,8 +81,8 @@ Once R and RStudio are installed, click to open RStudio. If you don't get any er
 You can run the following script to make sure all the required packages are properly installed on your laptop.
 
 
+```{r required libs, eval = FALSE}
 
-```r
 # list of required packages
 list.of.packages <- c(
   'data.table',
