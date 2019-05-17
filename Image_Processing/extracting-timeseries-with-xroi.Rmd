@@ -20,6 +20,8 @@ Using the *xROI* R package, the user can detect FOV shifts with minimal difficul
 The software gives user the opportunity to re-adjust mask files or redraw new 
 ones every time an FOV shift occurs.
 
+![xROI User Interface](figure/xROI.png)
+
 ## xROI Design
 The R language and Shiny package were used as the main development tool for xROI,
 while Markdown, HTML, CSS and JavaScript languages were used to improve the 
@@ -139,14 +141,23 @@ Now we can explore if there is any FOV shift in the dataset using the `CLI proce
 
 Finally, we can go to the `Time series extraction` tab. Extract the time-series. Save the output and explore the dataset in R.
 
-<div id="ds-challenge" markdown="1">
+
+## Documentation and Citation
+
+More documentation about **xROI** can be found from: <a href="https://bnasr.github.io/papers/Seyednasrollah_et_al_2019_PRS.pdf">Seyednarollah, et al. 2019</a>. 
+
+![xROI published in ISPRS Journal of Photogrammetry and Remote Sensing, 2019](figure/xROI-ms2019.png)
+
+
 ## Challenge: Use xROI
+
 Let's use xROI on a little more challenging site with field of view shifts. 
 
 Download and extract the data set from 
 <a href="http://bit.ly/2DrZgA1">this link (direct download, 218 MB)</a> 
 and follow the above steps to extract the time-series.
 </div>
+
 
 *** 
 
