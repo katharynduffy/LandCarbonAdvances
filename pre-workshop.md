@@ -84,6 +84,7 @@ You can run the following script to make sure all the required packages are prop
 # list of required packages
 list.of.packages <- c(
   'data.table',
+  'lubridate',
   'imager',
   'jsonlite',
   'jpeg',
@@ -93,6 +94,7 @@ list.of.packages <- c(
   'rgdal',
   'sp',
   'tiff',
+  'knitr',
   'xROI'
 )
 
