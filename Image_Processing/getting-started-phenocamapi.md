@@ -46,7 +46,20 @@ To explore the PhenoCam data, we'll use several packages for this tutorial.
 
 library(data.table)
 library(phenocamapi)
+#> Loading required package: rjson
+#> Loading required package: RCurl
+#> Loading required package: methods
+#> Loading required package: bitops
 library(lubridate)
+#> 
+#> Attaching package: 'lubridate'
+#> The following objects are masked from 'package:data.table':
+#> 
+#>     hour, isoweek, mday, minute, month, quarter, second, wday,
+#>     week, yday, year
+#> The following object is masked from 'package:base':
+#> 
+#>     date
 library(jpeg)
 ```
 
@@ -104,7 +117,7 @@ the abbreviations for the vegetation types mean from the following table:
 
 
 |Abbreviation|Description|
-|:-:|:-:|
+|-|-|
 | AG |	agriculture |
 | DB |	deciduous broadleaf |
 | DN |	deciduous needleleaf |
@@ -402,92 +415,19 @@ download_midday_images(site = 'dukehw', # which site
                        months = 1:12, # which month(s)
                        days = 15, # which days on month(s)
                        download_dir = tmp_dir) # where on your computer
-#> 
-  |                                                                       
-  |                                                                 |   0%
-  |                                                                       
-  |=====                                                            |   8%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_01_15_120109.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |===========                                                      |  17%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_02_15_120108.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |================                                                 |  25%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_03_15_120151.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |======================                                           |  33%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_04_15_120110.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |===========================                                      |  42%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_05_15_120108.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |================================                                 |  50%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_06_15_120120.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |======================================                           |  58%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_07_15_120109.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |===========================================                      |  67%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_08_15_120110.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |=================================================                |  75%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_09_15_120110.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |======================================================           |  83%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_10_15_120112.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |============================================================     |  92%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_11_15_120111.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> 
-  |                                                                       
-  |=================================================================| 100%
-#> Warning in download_midday_images(site = "dukehw", y = 2017, months =
-#> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_12_15_120108.jpg was already in /tmp/
-#> Rtmp2IYd5l
-#> [1] "/tmp/Rtmp2IYd5l"
+#>   |                                                                         |                                                                 |   0%  |                                                                         |=====                                                            |   8%  |                                                                         |===========                                                      |  17%  |                                                                         |================                                                 |  25%  |                                                                         |======================                                           |  33%  |                                                                         |===========================                                      |  42%  |                                                                         |================================                                 |  50%  |                                                                         |======================================                           |  58%  |                                                                         |===========================================                      |  67%  |                                                                         |=================================================                |  75%  |                                                                         |======================================================           |  83%  |                                                                         |============================================================     |  92%  |                                                                         |=================================================================| 100%
+#> [1] "/tmp/RtmpcR5fSk"
 
 # list of downloaded files
 duke_middays_path <- dir(tmp_dir, pattern = 'dukehw*', full.names = TRUE)
 
 head(duke_middays_path)
-#> [1] "/tmp/Rtmp2IYd5l/dukehw_2017_01_15_120109.jpg"
-#> [2] "/tmp/Rtmp2IYd5l/dukehw_2017_02_15_120108.jpg"
-#> [3] "/tmp/Rtmp2IYd5l/dukehw_2017_03_15_120151.jpg"
-#> [4] "/tmp/Rtmp2IYd5l/dukehw_2017_04_15_120110.jpg"
-#> [5] "/tmp/Rtmp2IYd5l/dukehw_2017_05_15_120108.jpg"
-#> [6] "/tmp/Rtmp2IYd5l/dukehw_2017_06_15_120120.jpg"
+#> [1] "/tmp/RtmpcR5fSk/dukehw_2017_01_15_120109.jpg"
+#> [2] "/tmp/RtmpcR5fSk/dukehw_2017_02_15_120108.jpg"
+#> [3] "/tmp/RtmpcR5fSk/dukehw_2017_03_15_120151.jpg"
+#> [4] "/tmp/RtmpcR5fSk/dukehw_2017_04_15_120110.jpg"
+#> [5] "/tmp/RtmpcR5fSk/dukehw_2017_05_15_120108.jpg"
+#> [6] "/tmp/RtmpcR5fSk/dukehw_2017_06_15_120120.jpg"
 ```
 
 We can demonstrate the seasonality of Duke forest observed from the camera. (Note
