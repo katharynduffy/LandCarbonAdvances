@@ -104,7 +104,7 @@ the abbreviations for the vegetation types mean from the following table:
 
 
 |Abbreviation|Description|
-|-|-|
+|:-:|:-:|
 | AG |	agriculture |
 | DB |	deciduous broadleaf |
 | DN |	deciduous needleleaf |
@@ -402,51 +402,77 @@ download_midday_images(site = 'dukehw', # which site
                        months = 1:12, # which month(s)
                        days = 15, # which days on month(s)
                        download_dir = tmp_dir) # where on your computer
-#>   |                                                                         |                                                                 |   0%  |                                                                         |=====                                                            |   8%
+#> 
+  |                                                                       
+  |                                                                 |   0%
+  |                                                                       
+  |=====                                                            |   8%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_01_15_120109.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |===========                                                      |  17%
+#> 
+  |                                                                       
+  |===========                                                      |  17%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_02_15_120108.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |================                                                 |  25%
+#> 
+  |                                                                       
+  |================                                                 |  25%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_03_15_120151.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |======================                                           |  33%
+#> 
+  |                                                                       
+  |======================                                           |  33%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_04_15_120110.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |===========================                                      |  42%
+#> 
+  |                                                                       
+  |===========================                                      |  42%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_05_15_120108.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |================================                                 |  50%
+#> 
+  |                                                                       
+  |================================                                 |  50%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_06_15_120120.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |======================================                           |  58%
+#> 
+  |                                                                       
+  |======================================                           |  58%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_07_15_120109.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |===========================================                      |  67%
+#> 
+  |                                                                       
+  |===========================================                      |  67%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_08_15_120110.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |=================================================                |  75%
+#> 
+  |                                                                       
+  |=================================================                |  75%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_09_15_120110.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |======================================================           |  83%
+#> 
+  |                                                                       
+  |======================================================           |  83%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_10_15_120112.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |============================================================     |  92%
+#> 
+  |                                                                       
+  |============================================================     |  92%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_11_15_120111.jpg was already in /tmp/
 #> Rtmp2IYd5l
-#>   |                                                                         |=================================================================| 100%
+#> 
+  |                                                                       
+  |=================================================================| 100%
 #> Warning in download_midday_images(site = "dukehw", y = 2017, months =
 #> 1:12, : /tmp/Rtmp2IYd5l/dukehw_2017_12_15_120108.jpg was already in /tmp/
 #> Rtmp2IYd5l
