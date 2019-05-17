@@ -85,8 +85,9 @@ Temperature (MAT) across the different field site and classify those by the
 primary vegetation type (`primary_veg_type`) for each site. We can find out what 
 the abbreviations for the vegetation types mean from the following table:
 
-| Abbreviation |	Description |
-|----------|:-------------:|------:|
+
+|Abbreviation|Description|
+|-|-|
 | AG |	agriculture |
 | DB |	deciduous broadleaf |
 | DN |	deciduous needleleaf |
@@ -100,6 +101,7 @@ the abbreviations for the vegetation types mean from the following table:
 | NV |	non-vegetated |
 | RF |	reference panel | 	 
 | XX |	unspecified |
+
 
 To do this we'd first want to remove the sites where there is not data and then 
 plot the data. 
