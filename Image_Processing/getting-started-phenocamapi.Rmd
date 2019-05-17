@@ -1,18 +1,9 @@
 ---
-syncID: 040aa4e32b574a7dac2bf2f88ea86858
 title: "Interacting with the PhenoCam Server using phenocamapi R Pacakge"
 description: "Learn the basics of how to extract PhenoCam data and metadata through the Phenocam API"
 date: "`r Sys.Date()`"
 authors: Bijan Seyednasrollah
-contributors:
 estimatedTime: 0.5 hrs
-packagesLibraries: phenocamapi, data.table, lubridate, jpeg
-topics: remote-sensing, phenology, time-series, data-analysis
-languagesTool: R
-dataProduct: DP1.00033.001, DP1.00042.001, DP1.20002.001
-code1: /R/pheno-cam/getting-started-phenocamapi.R
-tutorialSeries: phenocam-intro
-urlTitle: phenocam-api-intro
 ---
 
 ```{r setup, include = FALSE}

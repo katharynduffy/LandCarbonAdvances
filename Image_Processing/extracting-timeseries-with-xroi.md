@@ -1,18 +1,9 @@
 ---
-syncID: 43aa1b7a6a4b48f3bce1ee636ba857e0
 title: "Extracting Timeseries from Images using the xROI R Package"
 description: "Delineate Region of Interests (ROIs) and Extract Time-Series Data from Digital Repeat Photography Images using xROI"
 date: "2019-05-17"
 authors: Bijan Seyednasrollah
-contributors:
 estimatedTime: 0.5 hrs
-packagesLibraries: xROI, raster, rgdal, sp
-topics: remote-sensing, phenology, time-series, data-analysis
-languagesTool: R, bash
-dataProduct: DP1.00033.001, DP1.00042.001, DP1.20002.001
-code1: /R/pheno-cam/extracting-timeseries-with-xroi.R
-tutorialSeries: phenocam-intro
-urlTitle: phenocam-xroi-intro
 ---
 
 In this tutorial, we'll learn how to use an interactive open-source toolkit, the 
