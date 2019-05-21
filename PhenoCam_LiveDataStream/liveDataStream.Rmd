@@ -2,9 +2,21 @@
 title: "Live Data Stream Tutorial"
 author: "K Duffy"
 date: "5/13/2019"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
+First let's load some packages:
 
+```{r, echo=FALSE}
+suppressMessages(library(jsonlite))
+suppressMessages(library(phenocamapi))
+suppressMessages(library(plotly))
+suppressMessages(library(phenocamr))
+suppressMessages(library(dplyr))
+```
+
+As a refresher, there are two main ways to pull in PhenoCam data.  First, directly via the API:
 ```{r}
 c      = jsonlite::fromJSON('https://phenocam.sr.unh.edu/api/cameras/?format=json&limit=2000')
 c = c$results
@@ -13,8 +25,90 @@ c$sitemetadata=NULL
 cams_=cbind(c, c_m)
 cams_[is.na(cams_)] = 'N'
 cams_[, 2:4] <- sapply(cams_[, 2:4], as.numeric) #changing lat/lon/elev from string values into numeric
-
-# All site names from table
-site_names = cams_$Sitename
+head(cams_)
 ```
 
+And second, via the phenocamapi package:
+
+```{r}
+phenos=get_phenos()
+head(phenos)
+```
+
+To familiarize yourself with the phenocam API, let's explore the structure:
+[https://phenocam.sr.unh.edu/api/](https://phenocam.sr.unh.edu/api/)
+
+Explore the options for filtering, file type and so forth.
+
+***
+
+Now, based on either direct API access or via the phenocamapi package, generate a dataframe of phenocam sites.  Select two phenocam sites from *different* plant functional types to explore (e.g. one grassland site and one evergreen needleleaf site)
+
+```{r}
+#example
+GrassSites=cams_%>%
+  filter(cams_$primary_veg_type=='GR')
+head(GrassSites)
+```
+
+```{r}
+FirstSite=GrassSites[5, ] #randomly chose the fifth site in the table
+FirstSite
+```
+
+Chose your own sites and build out your code chunk here:
+```{r}
+print('build here')
+```
+
+[Koen Huffkens](https://khufkens.com/) developed the [phenocamr package](https://cran.r-project.org/web/packages/phenocamr/index.html), which streamlines access to quality controlled data.  We will now use this package to download and process site based data and process it according to a standardized methodology.
+
+A full description of the methodology is provided in Scientific Data: Tracking vegetation phenology across diverse North American biomes using PhenoCam imagery (Richardson et al. 2018).
+
+```{r}
+#uncomment if you need to install via devtools
+#if(!require(devtools)){install.package(devtools)}
+#devtools::install_github("khufkens/phenocamr")
+library(phenocamr)
+```
+
+
+Use the dataframe of sites that you want to analyze to feed the phenocamr package.
+Note: you can choose either a daily or 3 day product
+
+```{r}
+phenocamr::download_phenocam(
+  frequency = 3,
+  veg_type = FirstSite$primary_veg_type,
+  roi_id = 1000,
+  site = FirstSite$Sitename,
+  phenophase = TRUE,
+  out_dir = "."
+  )
+```
+
+Now look in your working directory.  You have data!  Read it in:
+
+```{r}
+# load the time series data but replace the csv filename with whatever you downloaded
+df <- read.table("butte_GR_1000_3day.csv", header = TRUE, sep = ",")
+
+# read in the transition date file
+td <- read.table("butte_GR_1000_3day_transition_dates.csv",
+                 header = TRUE,
+                 sep = ",")
+```
+
+```{r}
+# select the rising (spring dates) for 25% threshold of Gcc 90
+td <- td[td$direction == "rising" & td$gcc_value == "gcc_90",]
+
+# create a simple line graph of the smooth Green Chromatic Coordinate (Gcc)
+# and add points for transition dates
+plot(as.Date(df$date), df$smooth_gcc_90, type = "l", xlab = "Date",
+     ylab = "Gcc (90th percentile)")
+points(x = as.Date(td$transition_25, origin = "1970-01-01"),
+       y = td$threshold_25,
+       pch = 19,
+       col = "red")
+```

@@ -95,7 +95,8 @@ list.of.packages <- c(
   'rgdal',
   'sp',
   'tiff',
-  'xROI'
+  'xROI', 
+  'phenocamr'
 )
 
 # identify new (not installed) packages
