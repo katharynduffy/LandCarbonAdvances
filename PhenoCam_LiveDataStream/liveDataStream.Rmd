@@ -107,7 +107,7 @@ p = plot_ly() %>%
   data = df,
   x = ~ as.Date(date),
   y = ~ smooth_gcc_90,
-  name = 'PhenoCam GCC',
+  name = 'Smoothed GCC',
   showlegend = TRUE,
   type = 'scatter',
   mode = 'line'
@@ -117,7 +117,8 @@ p = plot_ly() %>%
   y = ~gcc_90,
   name = 'GCC',
   type = 'scatter',
-  color ='#07A4B5'
+  color ='#07A4B5', 
+  opacity=.5
 )
 p
 ```
@@ -175,7 +176,7 @@ print('code here')
 #td <- phenophases("butte_GR_1000_3day.csv",
 #            internal = TRUE,
 #            upper_thresh = 0.8)
-#fall <- td[td$direction == "falling" & td$gcc_value == "gcc_90",]
+fall <- td[td$direction == "falling" & td$gcc_value == "gcc_90",]
 #Now generate a fall dataframe, what metrics should you use?
 ```
 
@@ -319,12 +320,32 @@ gcc_plot = function(gcc, spring, fall){
 gcc_p = gcc_plot(df, spring, fall)
 gcc_p
 ```
+
+What is the difference in 25% greenness onset for your first site? #hint, look at the spring dataframe you just generated
+
+```{r}
+#some hints to get you started
+d=spring$transition_25
+d=as.Date(d)
+d
+```
+
+```{r}
+#more code hints
+dates_split <- data.frame(date = d,
+                 year = as.numeric(format(d, format = "%Y")),
+                 month = as.numeric(format(d, format = "%m")),
+                 day = as.numeric(format(d, format = "%d")))
+```
+
+***
+
 Generate a plot of smoothed gcc and transition dates for your two sites and subplot them.  What do you notice?
 
 ```{r}
 #some hint code for subplotting in plot_ly:
-p <- subplot(p1, p2, nrows=2)
-p
+#p <- subplot(p1, p2, nrows=2)
+#p
 ```
 
 ###Comparing phenology of the same vegetation cover but across climate space
@@ -345,8 +366,8 @@ Now let's create a subplot of your grasslands to compare phenology, some hint co
 
 ```{r}
 #some hint code for subplotting in plot_ly:
-p <- subplot(p1, p2, nrows=2)
-p
+#p <- subplot(p1, p2, nrows=2)
+#p
 ```
 
 Once you have a subplot of grassland phenology across 2 climates answer the following questions here in the markdown:
