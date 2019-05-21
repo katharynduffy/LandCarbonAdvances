@@ -61,7 +61,7 @@ Chose your own sites and build out your code chunk here:
 print('build here')
 ```
 
-[Koen Huffkens](https://khufkens.com/) developed the [phenocamr package](https://cran.r-project.org/web/packages/phenocamr/index.html), which streamlines access to quality controlled data.  We will now use this package to download and process site based data and process it according to a standardized methodology.
+[Koen Huffkens](https://khufkens.com/) developed the [phenocamr package](https://cran.r-project.org/web/packages/phenocamr/index.html), which streamlines access to quality controlled data.  We will now use this package to download and process site based data according to a standardized methodology.
 
 A full description of the methodology is provided in Scientific Data: Tracking vegetation phenology across diverse North American biomes using PhenoCam imagery (Richardson et al. 2018).
 
@@ -99,16 +99,44 @@ td <- read.table("butte_GR_1000_3day_transition_dates.csv",
                  sep = ",")
 ```
 
+Let's take a look at the data:
+
+```{r}
+p = plot_ly() %>%
+  add_trace(
+  data = df,
+  x = ~ as.Date(date),
+  y = ~ smooth_gcc_90,
+  name = 'PhenoCam GCC',
+  showlegend = TRUE,
+  type = 'scatter',
+  mode = 'line'
+) %>% add_markers(
+  data=df,
+  x ~ as.Date(date),
+  y = ~gcc_90,
+  name = 'GCC',
+  type = 'scatter',
+  color ='#07A4B5'
+)
+p
+```
+
+What patterns do you notice?  How would we go about determining say the start of spring? (SOS)
+
+###Threshold values
+
+Let's subset the transition date (td) for each year when 25% of the greenness amplitude (of the 90^th) percentile is reached (threshold_25).
+
 ```{r}
 # select the rising (spring dates) for 25% threshold of Gcc 90
 spring <- td[td$direction == "rising" & td$gcc_value == "gcc_90",]
 
 ```
 
-
 Now let's create a simple plot_ly line graph of the smooth Green Chromatic Coordinate (Gcc) and add points for transition dates:
 
-Generate a phenocam plotting function to streamline:
+
 ```{r}
 p = plot_ly() %>%
   add_trace(
@@ -130,6 +158,12 @@ p = plot_ly() %>%
 p
 ```
 
+Now we can se the transition date for each year of interest and the annual patterns of the Gcc.
+
+However, if you want more control over the parameters used during processing, you can run through the three default processing steps as implemented in download_phenocam() and set parameters manually.
+
+Of particular interest is the option to specify your own threshold used in determining transition dates. 
+
 Now, in your small groups:
 What would be a reasonable threshold for peak greenness?  Or autumn onset?  Look at the ts dataset and phenocamr package and come up with a threshold.  Use the same code to plot it here:
 
@@ -141,13 +175,13 @@ print('code here')
 #td <- phenophases("butte_GR_1000_3day.csv",
 #            internal = TRUE,
 #            upper_thresh = 0.8)
-fall <- td[td$direction == "falling" & td$gcc_value == "gcc_90",]
+#fall <- td[td$direction == "falling" & td$gcc_value == "gcc_90",]
 #Now generate a fall dataframe, what metrics should you use?
 ```
 
 ###Comparing phenology across vegetation types
 
-
+Let's load in a function to make plotting smoother.  I'm dropped it here in the markdown so that you can edit it and re-run it as you see fit:
 ```{r}
 gcc_plot = function(gcc, spring, fall){
   unix = "1970-01-01"
@@ -285,3 +319,37 @@ gcc_plot = function(gcc, spring, fall){
 gcc_p = gcc_plot(df, spring, fall)
 gcc_p
 ```
+Generate a plot of smoothed gcc and transition dates for your two sites and subplot them.  What do you notice?
+
+```{r}
+#some hint code for subplotting in plot_ly:
+p <- subplot(p1, p2, nrows=2)
+p
+```
+
+###Comparing phenology of the same vegetation cover but across climate space
+
+As Dr. Richardson mentioned this morning in his introduction lecture, the same plant functional types (e.g. grasslands) can have very different phenologogical cycles.  Let's pick two phenocam grassland sites: one from a tropical climate (kamuela), and one from an arid climate (konza) here in Arizona:
+
+```{r}
+GrassSites=GrassSites[c(27,32),]
+```
+
+Now use the code you've generated above to pull in data from those sites:
+
+```{r}
+print('code here')
+```
+
+Now let's create a subplot of your grasslands to compare phenology, some hint code below:
+
+```{r}
+#some hint code for subplotting in plot_ly:
+p <- subplot(p1, p2, nrows=2)
+p
+```
+
+Once you have a subplot of grassland phenology across 2 climates answer the following questions here in the markdown:
+1. What seasonal patterns do you see?
+2. Do you think you set your thresholds correctly for transition dates/phenophases?  How might that very as a function of climate?
+3. What are the challenges of forecasting or modeling tropical versus arid grasslands?  How could the material that you've learned in this course so far aid you?
